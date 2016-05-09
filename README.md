@@ -1,2 +1,2 @@
 # flexy
-Flexbox utility classes
+See [Documentation](https://moodysalem.com/flexy/)

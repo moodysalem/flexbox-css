@@ -1,0 +1,118 @@
+// parent styles
+.flexy {
+  display: flex;
+
+  // flex direction is controlled by row/column & presence of the reverse class
+  &.row {
+    flex-direction: row;
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &.col {
+    flex-direction: column;
+    &.reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  // wrapping is controlled by the classes nowrap, wrap, and wrap-reverse
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  // justification is controlled by justify-(start/end/center/space-between/space-around)
+  &.justify- {
+    &start {
+      justify-content: flex-start;
+    }
+    &end {
+      justify-content: flex-end;
+    }
+    &center {
+      justify-content: center;
+    }
+    &space-between {
+      justify-content: space-between;
+    }
+    &space-around {
+      justify-content: space-around;
+    }
+  }
+
+  // item alignment is controlled by align-items-(start/end/center/baseline/stretch)
+  &.align-items- {
+    &start {
+      align-items: flex-start;
+    }
+    &end {
+      align-items: flex-end;
+    }
+    &center {
+      align-items: center;
+    }
+    &baseline {
+      align-items: baseline;
+    }
+    &stretch {
+      align-items: stretch;
+    }
+  }
+
+  // content alignment is controlled by align-content-(start/end/center/space-between/space-around/stretch)
+  &.align-content- {
+    &start {
+      align-content: flex-start;
+    }
+    &end {
+      align-content: flex-end;
+    }
+    &center {
+      align-content: center;
+    }
+    &space-between {
+      align-content: space-between;
+    }
+    &space-around {
+      align-content: space-around;
+    }
+    &stretch {
+      align-content: stretch;
+    }
+  }
+
+  // individual item styles
+  .item {
+    // individual item alignment classes
+    &.align- {
+      &auto {
+        align-self: auto;
+      }
+      &start {
+        align-self: flex-start;
+      }
+      &end {
+        align-self: flex-end;
+      }
+      &center {
+        align-self: center;
+      }
+      &baseline {
+        align-self: baseline;
+      }
+      &stretch {
+        align-self: stretch;
+      }
+    ;
+    }
+  }
+}
