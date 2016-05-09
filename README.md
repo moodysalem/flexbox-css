@@ -1,2 +1,2 @@
-# flexy
-See [Documentation](https://moodysalem.com/flexy/)
+# flexboxy
+See [Documentation](https://moodysalem.com/flexboxy/)
