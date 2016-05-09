@@ -7,6 +7,9 @@
     "build": "node-sass src/index.scss flexy.css && postcss --use autoprefixer -o flexy.css flexy.css",
     "dev": "watch \"npm run build\" src"
   },
+  "files": [
+    "flexy.css"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moodysalem/flexy.git"
