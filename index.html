@@ -8,13 +8,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
-        <link rel="stylesheet" href="flexy.css"/>
+        <link rel="stylesheet" href="flexboxy.css"/>
+        <style>
+            body {
+                background-color: #333;
+                color: white;
+            }
+
+            .container {
+                margin: auto;
+                padding: 10px;
+                max-width: 960px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Flexy Demo</h1>
-        <p>
-            This is a demo and the inline documentation for the flexbox classes in this stylesheet.
-            It should look the same in any browser that supports flexbox.
-        </p>
+        <div class="container">
+            <h1>Flexy Demo</h1>
+            <p>
+                Flexy is a simple utility stylesheet with CSS classes representing all the common configurations of
+                flexbox, so you don't have to write any vendor prefixing yourself.
+            </p>
+            <h2>Install</h2>
+            <code>npm i --save flexy</code>
+            <h2>Usage</h2>
+            <code>import 'flexy'</code>
+        </div>
     </body>
 </html>
