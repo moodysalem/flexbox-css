@@ -37,6 +37,19 @@
             .margin-sm {
                 margin: 0.5em;
             }
+
+            .padding-sm {
+                padding: 0.5em;
+            }
+
+            .border-radius-sm {
+                border-radius: 0.5em;
+            }
+
+            .white {
+                background-color: white;
+                color: #333;
+            }
         </style>
     </head>
     <body>
@@ -54,9 +67,15 @@
             <p>Otherwise, you can download flexboxy.css and use it like any other stylesheet</p>
             <h2>Documentation & Examples</h2>
             <h3>Simple Grid</h3>
-            <p>The container is a .flex and each .item grows or shrinks to fill the space. These are the default styles of .flex and .item</p>
+            <p>
+                The container is a .flex.row and each .item grows or shrinks to fill the space. These are the default
+                styles of .flex and .item
+            </p>
+            <p class="white padding-sm border-radius-sm">
+                Note: the .flex class on its own doesn't do anything. .row or .col is required alongside .flex
+            </p>
             <div class="demo">
-                <div class="flex">
+                <div class="flex row">
                     <div class="item center pink margin-sm">
                         .item
                     </div>
@@ -66,6 +85,14 @@
                     <div class="item center pink margin-sm">
                         .item
                     </div>
+                </div>
+            </div>
+            <h3>Customized Grow/Shrink</h3>
+            <p>0 through 12 are supported for grow and shrink attributes</p>
+            <div class="demo">
+                <div class="flex row">
+                    <div class="item grow-5 center pink margin-sm">.item.grow-5</div>
+                    <div class="item grow-2 center pink margin-sm">.item.grow-2</div>
                 </div>
             </div>
         </div>

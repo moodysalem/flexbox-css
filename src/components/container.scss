@@ -3,6 +3,7 @@
   @media (min-width: $minWidth) {
     // flex direction is controlled by row/column & presence of the reverse class
     &.#{$prefix}row {
+      display: flex;
       flex-direction: row;
       &.reverse {
         flex-direction: row-reverse;
@@ -10,6 +11,7 @@
     }
 
     &.#{$prefix}col {
+      display: flex;
       flex-direction: column;
       &.reverse {
         flex-direction: column-reverse;
@@ -92,7 +94,6 @@
 }
 
 .flex {
-  display: flex;
   @include parent-styles('', 0);
   @include parent-styles('sm-', 768px);
   @include parent-styles('md-', 992px);

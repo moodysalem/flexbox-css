@@ -35,16 +35,36 @@
         }
       }
     }
+
+    @for $i from 0 through 12 {
+      &.#{$prefix}grow-#{$i} {
+        flex-grow: $i;
+      }
+      &.#{$prefix}shrink-#{$i} {
+        flex-shrink: $i;
+      }
+    }
   }
 }
 
-.flex > .item {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
+.flex {
+  &.row {
+    > .item {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+  }
+  &.col {
+    > .item {
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+  }
 
-  @include item-styles('', 0);
-  @include item-styles('sm-', 768px);
-  @include item-styles('md-', 992px);
-  @include item-styles('lg-', 1200px);
+  > .item {
+    @include item-styles('', 0);
+    @include item-styles('sm-', 768px);
+    @include item-styles('md-', 992px);
+    @include item-styles('lg-', 1200px);
+  }
 }
