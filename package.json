@@ -4,7 +4,7 @@
   "description": "Flexbox utility classes",
   "main": "flexboxy.css",
   "scripts": {
-    "build": "node-sass src/index.scss flexboxy.css && postcss --use autoprefixer -o flexboxy.css flexboxy.css",
+    "build": "node-sass src/index.scss flexboxy.css && postcss --use autoprefixer -o flexboxy.css flexboxy.css && cleancss -o flexboxy-min.css flexboxy.css",
     "dev": "watch \"npm run build\" src"
   },
   "files": [
@@ -28,6 +28,7 @@
   "homepage": "https://moodysalem.com/flexboxy/",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "clean-css": "^3.4.12",
     "node-sass": "^3.7.0",
     "postcss-cli": "^2.5.2",
     "watch": "^0.18.0"
