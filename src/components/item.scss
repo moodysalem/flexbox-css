@@ -1,0 +1,50 @@
+// child item styles
+@mixin item-styles($prefix, $minWidth) {
+  @media (min-width: $minWidth) {
+    &.#{$prefix}none {
+      flex: none;
+    }
+
+    // individual item alignment classes
+    &.#{$prefix}align- {
+      &auto {
+        align-self: auto;
+      }
+      &start {
+        align-self: flex-start;
+      }
+      &end {
+        align-self: flex-end;
+      }
+      &center {
+        align-self: center;
+      }
+      &baseline {
+        align-self: baseline;
+      }
+      &stretch {
+        align-self: stretch;
+      }
+    }
+
+    // .item.order-x
+    @for $i from 1 through 12 {
+      &.#{$prefix}order- {
+        &#{$i} {
+          order: $i;
+        }
+      }
+    }
+  }
+}
+
+.flex > .item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+
+  @include item-styles('', 0);
+  @include item-styles('sm-', 768px);
+  @include item-styles('md-', 992px);
+  @include item-styles('lg-', 1200px);
+}

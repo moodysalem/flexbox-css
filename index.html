@@ -20,6 +20,23 @@
                 padding: 10px;
                 max-width: 960px;
             }
+
+            .demo {
+                color: beige;
+            }
+
+            .center {
+                text-align: center;
+            }
+
+            .pink {
+                background-color: pink;
+                color: #333;
+            }
+
+            .margin-sm {
+                margin: 0.5em;
+            }
         </style>
     </head>
     <body>
@@ -36,6 +53,21 @@
             <code>import 'flexboxy';</code>
             <p>Otherwise, you can download flexboxy.css and use it like any other stylesheet</p>
             <h2>Documentation & Examples</h2>
+            <h3>Simple Grid</h3>
+            <p>The container is a .flex and each .item grows or shrinks to fill the space. These are the default styles of .flex and .item</p>
+            <div class="demo">
+                <div class="flex">
+                    <div class="item center pink margin-sm">
+                        .item
+                    </div>
+                    <div class="item center pink margin-sm">
+                        .item
+                    </div>
+                    <div class="item center pink margin-sm">
+                        .item
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
