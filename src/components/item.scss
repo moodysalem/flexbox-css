@@ -48,23 +48,26 @@
 }
 
 .flex {
+  // in rows the min-width is set to 0 for browser support
   &.row {
     > .item {
-      flex: 1 1 auto;
       min-width: 0;
     }
   }
+  // in columns the min-height is set to 0 for browser support
   &.col {
     > .item {
-      flex: 1 1 auto;
       min-height: 0;
     }
   }
 
-  > .item {
-    @include item-styles('', 0);
-    @include item-styles('sm-', 768px);
-    @include item-styles('md-', 992px);
-    @include item-styles('lg-', 1200px);
+  &.row, &.col {
+    > .item {
+      flex: 1 1 auto;
+      @include item-styles('', 0);
+      @include item-styles('sm-', 768px);
+      @include item-styles('md-', 992px);
+      @include item-styles('lg-', 1200px);
+    }
   }
 }
