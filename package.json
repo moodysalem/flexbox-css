@@ -1,6 +1,6 @@
 {
   "name": "flexboxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flexbox utility classes",
   "main": "flexboxy.css",
   "scripts": {
