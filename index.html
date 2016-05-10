@@ -1,219 +1,269 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Flexboxy</title>
-        <meta name="description" content="Flexbox Utility CSS Stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Flexboxy</title>
+    <meta name="description" content="Flexbox Utility CSS Stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
-        <link rel="stylesheet" href="flexboxy-min.css"/>
-        <!--colors-->
-        <style>
-            .blue {
-                color: #2D4471
-            }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" href="flexboxy-min.css"/>
+    <!--colors-->
+    <style>
+        .blue {
+            color: #2D4471
+        }
 
-            .blue-light {
-                color: #4E638E
-            }
+        .blue-light {
+            color: #4E638E
+        }
 
-            .blue-dark {
-                color: #152B55
-            }
+        .blue-dark {
+            color: #152B55
+        }
 
-            .purple {
-                color: #3F3075
-            }
+        .purple {
+            color: #3F3075
+        }
 
-            .purple-light {
-                color: #605293
-            }
+        .purple-light {
+            color: #605293
+        }
 
-            .purple-dark {
-                color: #251758
-            }
+        .purple-dark {
+            color: #251758
+        }
 
-            .green {
-                color: #236863
-            }
+        .green {
+            color: #236863
+        }
 
-            .green-light {
-                color: #41837E
-            }
+        .green-light {
+            color: #41837E
+        }
 
-            .green-dark {
-                color: #0D4E4A
-            }
+        .green-dark {
+            color: #0D4E4A
+        }
 
-            .bg-blue {
-                background-color: #2D4471
-            }
+        .bg-blue {
+            background-color: #2D4471
+        }
 
-            .bg-blue-light {
-                background-color: #4E638E
-            }
+        .bg-blue-light {
+            background-color: #4E638E
+        }
 
-            .bg-blue-dark {
-                background-color: #152B55
-            }
+        .bg-blue-dark {
+            background-color: #152B55
+        }
 
-            .bg-purple {
-                background-color: #3F3075
-            }
+        .bg-purple {
+            background-color: #3F3075
+        }
 
-            .bg-purple-light {
-                background-color: #605293
-            }
+        .bg-purple-light {
+            background-color: #605293
+        }
 
-            .bg-purple-dark {
-                background-color: #251758
-            }
+        .bg-purple-dark {
+            background-color: #251758
+        }
 
-            .bg-green {
-                background-color: #236863
-            }
+        .bg-green {
+            background-color: #236863
+        }
 
-            .bg-green-light {
-                background-color: #41837E
-            }
+        .bg-green-light {
+            background-color: #41837E
+        }
 
-            .bg-green-dark {
-                background-color: #0D4E4A
-            }
+        .bg-green-dark {
+            background-color: #0D4E4A
+        }
 
-            .white {
-                color: white;
-            }
-        </style>
-        <style>
-            .container {
-                margin: auto;
-                padding: 10px;
-                max-width: 960px;
-            }
+        .white {
+            color: white;
+        }
+    </style>
+    <style>
+        .container {
+            margin: auto;
+            padding: 10px;
+            max-width: 960px;
+        }
 
-            .center {
-                text-align: center;
-            }
+        .center {
+            text-align: center;
+        }
 
-            .margin-sm {
-                margin: 0.5em;
-            }
+        .margin-sm {
+            margin: 0.5em;
+        }
 
-            .padding-sm {
-                padding: 0.5em;
-            }
+        .padding-sm {
+            padding: 0.5em;
+        }
 
-            .border-radius-sm {
-                border-radius: 0.5em;
-            }
+        .border-radius-sm {
+            border-radius: 0.5em;
+        }
 
-        </style>
-    </head>
-    <body class="bg-blue-dark white">
-        <!-- fork me on github banner -->
-        <a href="https://github.com/moodysalem/flexboxy"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
-        <!-- content -->
-        <div class="container">
-            <h1>Flexboxy Demo</h1>
-            <p>
-                Flexboxy is a simple utility stylesheet with CSS classes representing all the common configurations of
-                flexbox, so you don't have to worry about vendor prefixing and you don't have to mix in flexbox with
-                your own styles.
-            </p>
-            <h2>Install</h2>
-            <code>npm i --save-dev flexboxy</code>
-            <h2>Development</h2>
-            <p>
-                The build process for this project is <code>sass</code> to <code>autoprefixer</code> to
-                <code>cleancss</code>.
-                Run <code>npm run build</code> to make your own build.
-                When doing development, use <code>npm run dev</code> to watch the source files for changes and
-                automatically rebuild.
-            </p>
-            <h2>Usage</h2>
-            <p>If you are using webpack to include CSS with a style loader, then it's as simple as</p>
-            <code>import 'flexboxy';</code>
-            <p>Otherwise, you can download flexboxy.css and use it like any other stylesheet</p>
-            <h2>Documentation & Examples</h2>
+        .height-100 {
+            height: 100px;
+        }
 
-            <h3>Parent Classes</h3>
-            <h4>Direction</h4>
-            <p>Row and Column directions are supported equally. The parent must explicitly describe its orientation</p>
-            <div class="bg-blue-light">
-                <div class="flex row">
-                    <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
-                    <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
-                    <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
-                </div>
-                <hr/>
-                <div class="flex col">
-                    <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
-                </div>
-            </div>
+    </style>
+</head>
+<body class="bg-blue-dark white">
+<!-- fork me on github banner -->
+<a href="https://github.com/moodysalem/flexboxy"><img style="position: fixed; top: 0; right: 0; border: 0;"
+                                                      src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+                                                      alt="Fork me on GitHub"
+                                                      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+<!-- content -->
+<div class="container">
+    <h1>Flexboxy</h1>
+    <p>
+        Flexboxy is a simple utility stylesheet with CSS classes representing all the common configurations of
+        flexbox, so you don't have to worry about vendor prefixing and you don't have to mix in flexbox with
+        your own styles.
+    </p>
+    <h2>Install</h2>
+    <code class="bg-purple-light padding-sm">npm i --save-dev flexboxy</code>
+    <h2>Development</h2>
+    <p>
+        The build process for this project is <code class="bg-purple-light">sass</code> to <code
+            class="bg-purple-light">autoprefixer</code> to
+        <code class="bg-purple-light">cleancss</code>.
+        Run <code class="bg-purple-light">npm run build</code> to make your own build.
+        When doing development, use <code class="bg-purple-light">npm run dev</code> to watch the source files for
+        changes and
+        automatically rebuild.
+    </p>
+    <h2>Usage</h2>
+    <p>If you are using webpack to include CSS with a style loader, then it's as simple as</p>
+    <code class="bg-purple-light padding-sm">import 'flexboxy';</code>
+    <p>Otherwise, you can download flexboxy.css and use it like any other stylesheet</p>
+    <h2>Documentation & Examples</h2>
 
-            <h4>Reverse</h4>
-            <p>Add the reverse class to your .flex.row or .flex.col to swap the order</p>
-            <div class="bg-blue-light">
-                <div class="flex row reverse">
-                    <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 1</div>
-                    <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 2</div>
-                    <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 3</div>
-                </div>
-                <hr/>
-                <div class="flex col reverse">
-                    <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 1</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 2</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 3</div>
-                </div>
-            </div>
-
-            <h4>Wrapping</h4>
-            <p>Add .nowrap, .wrap or .wrap-reverse to your .flex.row or .flex.col to change wrapping behavior</p>
-            <div class="bg-blue-light">
-                <div class="flex row wrap">
-                    <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 1</div>
-                    <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 2</div>
-                    <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 3</div>
-                    <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 4</div>
-                </div>
-                <hr/>
-                <div class="flex col wrap-reverse" style="height: 140px">
-                    <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 1</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 2</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 3</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 4</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 5</div>
-                    <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 6</div>
-                </div>
-            </div>
-
-            <h3>Child Classes</h3>
-
-            <h4>Customized Grow/Shrink</h4>
-            <p>0 through 12 are supported for grow and shrink classes</p>
-            <div class="bg-blue-light">
-                <div class="flex row">
-                    <div class="item grow-5 center bg-green-light margin-sm">.item.grow-5</div>
-                    <div class="item grow-2 center bg-green-light margin-sm">.item.grow-2</div>
-                    <div class="item shrink-2 center bg-green-light margin-sm">.item.shrink-2</div>
-                </div>
-            </div>
-
-
-            <h4>Ordering</h4>
-            <p>0 through 12 are supported for the order classes and can be used to reorder the children</p>
-            <div class="bg-blue-light">
-                <div class="flex row">
-                    <div class="item center bg-green-light margin-sm order-4">.item.order-4 1</div>
-                    <div class="item center bg-green-light margin-sm order-1">.item.order-1 2</div>
-                    <div class="item center bg-green-light margin-sm order-3">.item.order-3 3</div>
-                </div>
-            </div>
+    <h3>Parent Classes</h3>
+    <h4>Direction</h4>
+    <p>Row and Column directions are supported equally. The parent must explicitly describe its orientation</p>
+    <div class="bg-blue-light">
+        <div class="flex row">
+            <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
+            <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
+            <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
         </div>
-    </body>
+        <hr/>
+        <div class="flex col">
+            <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
+            <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
+            <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
+        </div>
+    </div>
+
+    <h4>Reverse</h4>
+    <p>Add the reverse class to your .flex.row or .flex.col to swap the order</p>
+    <div class="bg-blue-light">
+        <div class="flex row reverse">
+            <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex col reverse">
+            <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 3</div>
+        </div>
+    </div>
+
+    <h4>Wrapping</h4>
+    <p>Add .nowrap, .wrap or .wrap-reverse to your .flex.row or .flex.col to change wrapping behavior</p>
+    <div class="bg-blue-light">
+        <div class="flex row wrap">
+            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 3</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 4</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 5</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 6</div>
+        </div>
+        <hr/>
+        <div class="flex col wrap-reverse" style="height: 140px">
+            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 3</div>
+            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 4</div>
+            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 5</div>
+            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 6</div>
+        </div>
+    </div>
+
+    <h4>Justification</h4>
+    <p>Add .justify-(start/end/center/space-between/space-around) to .flex.row or .flex.col modify justification
+        behavior.</p>
+    <div class="bg-blue-light">
+        <div class="flex row justify-start">
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-start > .item 1</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-start > .item 2</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-start > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row justify-center">
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-center > .item 1</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-center > .item 2</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-center > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row justify-end">
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-end > .item 1</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-end > .item 2</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-end > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row justify-space-between">
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-between > .item 1</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-between > .item 2</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-between > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row justify-space-around">
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-around > .item 1</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-around > .item 2</div>
+            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-around > .item 3</div>
+        </div>
+    </div>
+
+
+    <h3>Child Classes</h3>
+
+    <h4>Customized Grow/Shrink</h4>
+    <p>0 through 12 are supported for grow and shrink classes</p>
+    <div class="bg-blue-light">
+        <div class="flex row">
+            <div class="item grow-5 center bg-green-light margin-sm">.item.grow-5</div>
+            <div class="item grow-2 center bg-green-light margin-sm">.item.grow-2</div>
+            <div class="item shrink-2 center bg-green-light margin-sm">.item.shrink-2</div>
+        </div>
+    </div>
+
+    <h4>Ordering</h4>
+    <p>0 through 12 are supported for the order classes and can be used to reorder the children</p>
+    <div class="bg-blue-light">
+        <div class="flex row">
+            <div class="item center bg-green-light margin-sm order-4">.item.order-4 1</div>
+            <div class="item center bg-green-light margin-sm order-1">.item.order-1 2</div>
+            <div class="item center bg-green-light margin-sm order-3">.item.order-3 3</div>
+        </div>
+    </div>
+
+    <div class="height-100"></div>
+    <div class="height-100"></div>
+    <div class="height-100"></div>
+</div>
+</body>
 </html>
