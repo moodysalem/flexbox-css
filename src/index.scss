@@ -1,2 +1,8 @@
+$xs-screen-width: 480px;
+$sm-screen-width: 768px;
+$md-screen-width: 992px;
+$lg-screen-width: 1200px;
+$xl-screen-width: 1480px;
+
 @import 'components/container';
 @import 'components/item';

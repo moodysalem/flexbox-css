@@ -95,7 +95,9 @@
 
 .flex {
   @include parent-styles('', 0);
-  @include parent-styles('sm-', 768px);
-  @include parent-styles('md-', 992px);
-  @include parent-styles('lg-', 1200px);
+  @include parent-styles('xs-', $xs-screen-width);
+  @include parent-styles('sm-', $sm-screen-width);
+  @include parent-styles('md-', $md-screen-width);
+  @include parent-styles('lg-', $lg-screen-width);
+  @include parent-styles('xl-', $xl-screen-width);
 }

@@ -63,11 +63,14 @@
 
   &.row, &.col {
     > .item {
+      // default behavior is to grow or shrink as necessary
       flex: 1 1 auto;
       @include item-styles('', 0);
-      @include item-styles('sm-', 768px);
-      @include item-styles('md-', 992px);
-      @include item-styles('lg-', 1200px);
+      @include item-styles('xs-', $xs-screen-width);
+      @include item-styles('sm-', $sm-screen-width);
+      @include item-styles('md-', $md-screen-width);
+      @include item-styles('lg-', $lg-screen-width);
+      @include item-styles('xl-', $xl-screen-width);
     }
   }
 }

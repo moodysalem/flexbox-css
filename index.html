@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Flexboxy</title>
     <meta name="description" content="Flexbox Utility CSS Stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
     <link rel="stylesheet" href="flexboxy-min.css"/>
@@ -114,9 +114,13 @@
             height: 100px;
         }
 
+        .overflow-x-hidden {
+            overflow-x: hidden;
+        }
+
     </style>
 </head>
-<body class="bg-blue-dark white">
+<body class="bg-blue-dark white overflow-x-hidden">
 <!-- fork me on github banner -->
 <a href="https://github.com/moodysalem/flexboxy"><img style="position: fixed; top: 0; right: 0; border: 0;"
                                                       src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
@@ -126,12 +130,14 @@
 <div class="container">
     <h1>Flexboxy</h1>
     <p>
-        Flexboxy is a simple utility stylesheet with CSS classes representing all the common configurations of
+        Flexboxy is a simple utility stylesheet with responsive CSS classes representing all the common configurations of
         flexbox, so you don't have to worry about vendor prefixing and you don't have to mix in flexbox with
         your own styles.
     </p>
+
     <h2>Install</h2>
     <code class="bg-purple-light padding-sm">npm i --save-dev flexboxy</code>
+
     <h2>Development</h2>
     <p>
         The build process for this project is <code class="bg-purple-light">sass</code> to <code
@@ -142,10 +148,12 @@
         changes and
         automatically rebuild.
     </p>
+
     <h2>Usage</h2>
     <p>If you are using webpack to include CSS with a style loader, then it's as simple as</p>
     <code class="bg-purple-light padding-sm">import 'flexboxy';</code>
     <p>Otherwise, you can download flexboxy.css and use it like any other stylesheet</p>
+
     <h2>Documentation & Examples</h2>
 
     <h3>Parent Classes</h3>
@@ -238,6 +246,47 @@
         </div>
     </div>
 
+    <h4>Item Alignment</h4>
+    <p>Add .align-items-(start/end/baseline/center/stretch) to .flex.row or .flex.col to modify item alignment.</p>
+    <div class="bg-blue-light">
+        <div class="flex row align-items-start height-100">
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-start > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-start > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-start > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row align-items-end height-100">
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-end > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-end > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-end > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row align-items-baseline height-100">
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-baseline > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-baseline > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-baseline > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row align-items-center height-100">
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-center > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-center > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-center > .item 3</div>
+        </div>
+        <hr/>
+        <div class="flex row align-items-stretch height-100">
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-stretch > .item 1</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-stretch > .item 2</div>
+            <div class="item center bg-green-light margin-sm">.flex.row.align-items-stretch > .item 3</div>
+        </div>
+    </div>
+
+    <!--<h4>Content Alignment</h4>-->
+    <!--<p>Add .align-content-(start/end/center/space-between/space-around/stretch) to .flex.row .flex.col to modify content-->
+    <!--alignment (only relevant with more than 1 line of flex items)</p>-->
+    <!--<div class="bg-blue-light">-->
+    <!---->
+    <!--</div>-->
+
 
     <h3>Child Classes</h3>
 
@@ -261,9 +310,33 @@
         </div>
     </div>
 
-    <div class="height-100"></div>
-    <div class="height-100"></div>
-    <div class="height-100"></div>
+    <h3>Responsive Classes</h3>
+    <p>
+        All the classes mentioned above also have responsive variants of xs, sm, md, lg and xl. The default
+        behavior is to apply to screens of all sizes. Applying a prefix to the class name will limit the class to only
+        apply to that minimum screen size.
+    </p>
+    <h5>Prefix Minimum Widths</h5>
+    <table>
+        <thead>
+        <tr>
+            <th>xs-</th>
+            <th>sm-</th>
+            <th>md-</th>
+            <th>lg-</th>
+            <th>xl-</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>480px</td>
+            <td>768px</td>
+            <td>992px</td>
+            <td>1200px</td>
+            <td>1480px</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
