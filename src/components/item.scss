@@ -64,7 +64,7 @@
   &.row, &.col {
     > .item {
       // default behavior is to grow or shrink as necessary
-      flex: 1 1 auto;
+      flex: none;
       @include item-styles('', 0);
       @include item-styles('xs-', $xs-screen-width);
       @include item-styles('sm-', $sm-screen-width);

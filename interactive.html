@@ -35,11 +35,12 @@
 
     var DOM = React.DOM, PropTypes = React.PropTypes;
 
+    var NONE = '';
     var ORIENTATIONS = ['row', 'col'];
-    var WRAPPINGS = ['nowrap', 'wrap', 'wrap-reverse'];
-    var JUSTIFICATIONS = ['start', 'end', 'center', 'space-between', 'space-around'];
-    var ALIGN_ITEMS = ['start', 'end', 'center', 'baseline', 'stretch'];
-    var ALIGN_CONTENT = ['start', 'end', 'center', 'space-between', 'space-around', 'stretch'];
+    var WRAPPINGS = [NONE, 'nowrap', 'wrap', 'wrap-reverse'];
+    var JUSTIFICATIONS = [NONE, 'start', 'end', 'center', 'space-between', 'space-around'];
+    var ALIGN_ITEMS = [NONE, 'start', 'end', 'center', 'baseline', 'stretch'];
+    var ALIGN_CONTENT = [NONE, 'start', 'end', 'center', 'space-between', 'space-around', 'stretch'];
 
     var SelectOptionMaker = React.createMixin({
         set: function (name, e) {
@@ -49,7 +50,7 @@
         },
 
         getSelectOption: function (attr, options, label) {
-            return DOM.div({className: 'margin-sm'}, DOM.label({
+            return DOM.div({key: attr, className: 'margin-sm'}, DOM.label({
                         key: attr,
                         className: 'text-nowrap display-inline-block'
                     },
@@ -67,8 +68,19 @@
 
         mixins: [SelectOptionMaker],
 
+        getClassName: function () {
+            var cs = [
+                'item'
+            ];
+
+            return cs.join(' ');
+        },
+
         render: function () {
-            return DOM.div({});
+            return DOM.div({className: this.getClassName()}, [
+                DOM.div({key: 1}, DOM.strong({}, 'Item Class')),
+                DOM.div({key: 2}, this.getClassName())
+            ]);
         }
     }));
 
@@ -80,25 +92,34 @@
         getInitialState: function () {
             return {
                 orientation: 'row',
-                wrapping: 'nowrap',
-                justification: 'start',
-                alignItems: 'start',
-                alignContent: 'start',
+                wrapping: NONE,
+                justification: NONE,
+                alignItems: NONE,
+                alignContent: NONE,
+                height: 200,
+                width: 400,
                 items: 1
             };
         },
 
+        addIfNotNone: function (val, array, prefix) {
+            if (val !== NONE) {
+                array.push((prefix || '') + val);
+            }
+        },
 
         getParentClassName: function () {
             var cs = [
                 'bg-purple-light',
                 'flex',
-                this.state.orientation,
-                this.state.wrapping,
-                'justify-' + this.state.justification,
-                'align-items-' + this.state.alignItems,
-                'align-content-' + this.state.alignContent
+                this.state.orientation
             ];
+
+            this.addIfNotNone(this.state.wrapping, cs);
+            this.addIfNotNone(this.state.justification, cs, 'justify-');
+            this.addIfNotNone(this.state.alignItems, cs, 'align-items-');
+            this.addIfNotNone(this.state.alignContent, cs, 'align-content-');
+
 
             return cs.join(' ');
         },
@@ -106,27 +127,70 @@
         getItems: function () {
             var arr = [];
             for (var i = 0; i < this.state.items; i++) {
-                arr.push(Item({key: i}));
+                arr.push(Item({key: i, index: i}));
             }
             return arr;
         },
 
         getDemoDiv: function () {
-            return DOM.div({key: 'div', className: this.getParentClassName()}, this.getItems());
+            return DOM.div({
+                key: 'div',
+                style: {
+                    height: +this.state.height,
+                    width: +this.state.width
+                },
+                className: this.getParentClassName()
+            }, this.getItems());
+        },
+
+
+        getAddRemoveButtons: function () {
+            var items = this.state.items;
+            return DOM.div({key: 'butons'}, [
+                DOM.button({
+                    key: 1,
+                    onClick: function () {
+                        this.setState({items: items + 1});
+                    }.bind(this)
+                }, 'Add Item'),
+                DOM.button({
+                    key: 2,
+                    onClick: function () {
+                        this.setState({items: Math.max(items - 1, 1)});
+                    }.bind(this)
+                }, 'Remove Item')
+            ]);
         },
 
         render: function () {
             return DOM.div({}, [
+                DOM.div({key: 'hw'}, [
+                    'Height: ',
+                    DOM.input({
+                        type: 'number',
+                        key: 'h',
+                        value: this.state.height,
+                        onChange: this.set.bind(this, 'height')
+                    }),
+                    'Width: ',
+                    DOM.input({
+                        type: 'number',
+                        key: 'w',
+                        value: this.state.width,
+                        onChange: this.set.bind(this, 'width')
+                    })
+                ]),
                 this.getSelectOption('orientation', ORIENTATIONS, 'Orientation: '),
                 this.getSelectOption('wrapping', WRAPPINGS, 'Wrapping: '),
                 this.getSelectOption('justification', JUSTIFICATIONS, 'Justification: '),
                 this.getSelectOption('alignItems', ALIGN_ITEMS, 'Align Items: '),
                 this.getSelectOption('alignContent', ALIGN_CONTENT, 'Align Content: '),
+                this.getAddRemoveButtons(),
                 DOM.div({
                     className: 'margin-sm padding-sm bg-green-light',
                     key: 'class'
                 }, DOM.label({}, [
-                    DOM.div({key:'box'}, DOM.strong({}, 'Parent Class')),
+                    DOM.div({key: 'box'}, DOM.strong({}, 'Parent Class')),
                     this.getParentClassName()
                 ])),
                 this.getDemoDiv()

@@ -749,10 +749,10 @@
   min-height: 0; }
 
 .flex.row > .item, .flex.col > .item {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto; }
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none; }
   @media (min-width: 0) {
     .flex.row > .item.none, .flex.col > .item.none {
       -webkit-box-flex: 0;
