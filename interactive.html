@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Flexboxy</title>
+    <meta name="description" content="Flexbox Utility CSS Stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" href="flexboxy-min.css"/>
+    <link rel="stylesheet" href="demo.css"/>
+</head>
+<body class="bg-blue-dark white overflow-x-hidden">
+<!-- fork me on github banner -->
+<a href="https://github.com/moodysalem/flexboxy"><img style="position: fixed; top: 0; right: 0; border: 0;"
+                                                      src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+                                                      alt="Fork me on GitHub"
+                                                      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+<div class="container">
+    <h1>Flexboxy</h1>
+    <h2>Documentation</h2>
+    <p>Go <a class="green-light" href="index.html">here</a> for documentation.</p>
+    <h2>Interactive Demo</h2>
+    <div id="demo">
+        Loading React...
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.js"></script>
+
+<script>
+    'use strict';
+
+    var DOM = React.DOM, PropTypes = React.PropTypes;
+
+    var ORIENTATIONS = ['row', 'col'];
+    var WRAPPINGS = ['nowrap', 'wrap', 'wrap-reverse'];
+    var JUSTIFICATIONS = ['start', 'end', 'center', 'space-between', 'space-around'];
+    var ALIGN_ITEMS = ['start', 'end', 'center', 'baseline', 'stretch'];
+    var ALIGN_CONTENT = ['start', 'end', 'center', 'space-between', 'space-around', 'stretch'];
+
+    var SelectOptionMaker = React.createMixin({
+        set: function (name, e) {
+            var obj = {};
+            obj[name] = e.target.value;
+            this.setState(obj);
+        },
+
+        getSelectOption: function (attr, options, label) {
+            return DOM.div({className: 'margin-sm'}, DOM.label({
+                        key: attr,
+                        className: 'text-nowrap display-inline-block'
+                    },
+                    DOM.span({key: 'label'}, label),
+                    DOM.select({key: 'se', onChange: this.set.bind(this, attr)},
+                            options.map(function (or) {
+                                return DOM.option({key: or, value: or}, or);
+                            }))
+            ));
+        }
+    });
+
+    var Item = React.createFactory(React.createClass({
+        displayName: 'Item',
+
+        mixins: [SelectOptionMaker],
+
+        render: function () {
+            return DOM.div({});
+        }
+    }));
+
+    var Demo = React.createFactory(React.createClass({
+        displayName: 'Demo',
+
+        mixins: [SelectOptionMaker],
+
+        getInitialState: function () {
+            return {
+                orientation: 'row',
+                wrapping: 'nowrap',
+                justification: 'start',
+                alignItems: 'start',
+                alignContent: 'start',
+                items: 1
+            };
+        },
+
+
+        getParentClassName: function () {
+            var cs = [
+                'bg-purple-light',
+                'flex',
+                this.state.orientation,
+                this.state.wrapping,
+                'justify-' + this.state.justification,
+                'align-items-' + this.state.alignItems,
+                'align-content-' + this.state.alignContent
+            ];
+
+            return cs.join(' ');
+        },
+
+        getItems: function () {
+            var arr = [];
+            for (var i = 0; i < this.state.items; i++) {
+                arr.push(Item({key: i}));
+            }
+            return arr;
+        },
+
+        getDemoDiv: function () {
+            return DOM.div({key: 'div', className: this.getParentClassName()}, this.getItems());
+        },
+
+        render: function () {
+            return DOM.div({}, [
+                this.getSelectOption('orientation', ORIENTATIONS, 'Orientation: '),
+                this.getSelectOption('wrapping', WRAPPINGS, 'Wrapping: '),
+                this.getSelectOption('justification', JUSTIFICATIONS, 'Justification: '),
+                this.getSelectOption('alignItems', ALIGN_ITEMS, 'Align Items: '),
+                this.getSelectOption('alignContent', ALIGN_CONTENT, 'Align Content: '),
+                DOM.div({
+                    className: 'margin-sm padding-sm bg-green-light',
+                    key: 'class'
+                }, DOM.label({}, [
+                    DOM.div({key:'box'}, DOM.strong({}, 'Parent Class')),
+                    this.getParentClassName()
+                ])),
+                this.getDemoDiv()
+            ]);
+        }
+    }));
+
+    ReactDOM.render(Demo(), document.getElementById('demo'));
+</script>
+</body>
+</html>
