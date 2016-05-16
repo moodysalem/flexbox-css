@@ -4,7 +4,7 @@
   "description": "Flexbox utility classes",
   "main": "flexboxy.css",
   "scripts": {
-    "build": "node-sass src/index.scss flexboxy.css && postcss --use autoprefixer -o flexboxy.css flexboxy.css && cleancss -o flexboxy-min.css flexboxy.css",
+    "build": "node-sass src/index.scss flexboxy.css && postcss --use autoprefixer -o flexboxy.css flexboxy.css && cleancss -o flexboxy-min.css flexboxy.css && gzip -9 -f -k flexboxy-min.css",
     "dev": "watch \"npm run build\" src"
   },
   "files": [

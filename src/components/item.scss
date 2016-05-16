@@ -1,48 +1,64 @@
+@mixin item-styles($prefix) {
+  &.#{$prefix}none {
+    flex: none;
+  }
+
+  // individual item alignment classes
+  &.#{$prefix}align- {
+    &auto {
+      align-self: auto;
+    }
+    &start {
+      align-self: flex-start;
+    }
+    &end {
+      align-self: flex-end;
+    }
+    &center {
+      align-self: center;
+    }
+    &baseline {
+      align-self: baseline;
+    }
+    &stretch {
+      align-self: stretch;
+    }
+  }
+
+  // .item.order-x
+  @for $i from 1 through 12 {
+    &.#{$prefix}order- {
+      &#{$i} {
+        order: $i;
+      }
+    }
+  }
+
+  @for $i from 0 through 12 {
+    &.#{$prefix}grow-#{$i} {
+      flex-grow: $i;
+    }
+    &.#{$prefix}shrink-#{$i} {
+      flex-shrink: $i;
+    }
+  }
+}
+
 // child item styles
-@mixin item-styles($prefix, $minWidth) {
-  @media (min-width: $minWidth) {
-    &.#{$prefix}none {
-      flex: none;
-    }
-
-    // individual item alignment classes
-    &.#{$prefix}align- {
-      &auto {
-        align-self: auto;
+@mixin item-styles-responsive($prefix, $minWidth, $maxWidth) {
+  @if ($minWidth > 0) {
+    @if ($maxWidth > $minWidth) {
+      @media (min-width: $minWidth) and (max-width: $maxWidth) {
+        @include item-styles($prefix);
       }
-      &start {
-        align-self: flex-start;
-      }
-      &end {
-        align-self: flex-end;
-      }
-      &center {
-        align-self: center;
-      }
-      &baseline {
-        align-self: baseline;
-      }
-      &stretch {
-        align-self: stretch;
+    } @else {
+      @media (min-width: $minWidth) {
+        @include item-styles($prefix);
       }
     }
-
-    // .item.order-x
-    @for $i from 1 through 12 {
-      &.#{$prefix}order- {
-        &#{$i} {
-          order: $i;
-        }
-      }
-    }
-
-    @for $i from 0 through 12 {
-      &.#{$prefix}grow-#{$i} {
-        flex-grow: $i;
-      }
-      &.#{$prefix}shrink-#{$i} {
-        flex-shrink: $i;
-      }
+  } @else if ($maxWidth > 0) {
+    @media (max-width: $maxWidth) {
+      @include item-styles($prefix);
     }
   }
 }
@@ -63,14 +79,14 @@
 
   &.row, &.col {
     > .item {
-      // default behavior is to grow or shrink as necessary
+      // default behavior is not to flex (requires grow or shrink classes)
       flex: none;
-      @include item-styles('', 0);
-      @include item-styles('xs-', $xs-screen-width);
-      @include item-styles('sm-', $sm-screen-width);
-      @include item-styles('md-', $md-screen-width);
-      @include item-styles('lg-', $lg-screen-width);
-      @include item-styles('xl-', $xl-screen-width);
+      @include item-styles('');
+      @include item-styles-responsive('xs-', 0, $xs-screen-width);
+      @include item-styles-responsive('sm-', $xs-screen-width, $sm-screen-width);
+      @include item-styles-responsive('md-', $sm-screen-width, $md-screen-width);
+      @include item-styles-responsive('lg-', $md-screen-width, $lg-screen-width);
+      @include item-styles-responsive('xl-', $lg-screen-width, 0);
     }
   }
 }

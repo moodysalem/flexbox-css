@@ -1,103 +1,120 @@
 // parent styles
-@mixin parent-styles($prefix, $minWidth) {
-  @media (min-width: $minWidth) {
-    // flex direction is controlled by row/column & presence of the reverse class
-    &.#{$prefix}row {
-      display: flex;
-      flex-direction: row;
-      &.reverse {
-        flex-direction: row-reverse;
+@mixin parent-styles($prefix) {
+  // flex direction is controlled by row/column & presence of the reverse class
+  &.#{$prefix}row {
+    display: flex;
+    flex-direction: row;
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &.#{$prefix}col {
+    display: flex;
+    flex-direction: column;
+    &.reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  // wrapping is controlled by the classes nowrap, wrap, and wrap-reverse
+  &.#{$prefix}nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.#{$prefix}wrap {
+    flex-wrap: wrap;
+  }
+
+  &.#{$prefix}wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  // justification is controlled by justify-(start/end/center/space-between/space-around)
+  &.#{$prefix}justify- {
+    &start {
+      justify-content: flex-start;
+    }
+    &end {
+      justify-content: flex-end;
+    }
+    &center {
+      justify-content: center;
+    }
+    &space-between {
+      justify-content: space-between;
+    }
+    &space-around {
+      justify-content: space-around;
+    }
+  }
+
+  // item alignment is controlled by align-items-(start/end/center/baseline/stretch)
+  &.#{$prefix}align-items- {
+    &start {
+      align-items: flex-start;
+    }
+    &end {
+      align-items: flex-end;
+    }
+    &center {
+      align-items: center;
+    }
+    &baseline {
+      align-items: baseline;
+    }
+    &stretch {
+      align-items: stretch;
+    }
+  }
+
+  // content alignment is controlled by align-content-(start/end/center/space-between/space-around/stretch)
+  &.#{$prefix}align-content- {
+    &start {
+      align-content: flex-start;
+    }
+    &end {
+      align-content: flex-end;
+    }
+    &center {
+      align-content: center;
+    }
+    &space-between {
+      align-content: space-between;
+    }
+    &space-around {
+      align-content: space-around;
+    }
+    &stretch {
+      align-content: stretch;
+    }
+  }
+}
+
+// child item styles
+@mixin parent-styles-responsive($prefix, $minWidth, $maxWidth) {
+  @if ($minWidth > 0) {
+    @if ($maxWidth > $minWidth) {
+      @media (min-width: $minWidth) and (max-width: $maxWidth) {
+        @include parent-styles($prefix);
+      }
+    } @else {
+      @media (min-width: $minWidth) {
+        @include parent-styles($prefix);
       }
     }
-
-    &.#{$prefix}col {
-      display: flex;
-      flex-direction: column;
-      &.reverse {
-        flex-direction: column-reverse;
-      }
-    }
-
-    // wrapping is controlled by the classes nowrap, wrap, and wrap-reverse
-    &.#{$prefix}nowrap {
-      flex-wrap: nowrap;
-    }
-
-    &.#{$prefix}wrap {
-      flex-wrap: wrap;
-    }
-
-    &.#{$prefix}wrap-reverse {
-      flex-wrap: wrap-reverse;
-    }
-
-    // justification is controlled by justify-(start/end/center/space-between/space-around)
-    &.#{$prefix}justify- {
-      &start {
-        justify-content: flex-start;
-      }
-      &end {
-        justify-content: flex-end;
-      }
-      &center {
-        justify-content: center;
-      }
-      &space-between {
-        justify-content: space-between;
-      }
-      &space-around {
-        justify-content: space-around;
-      }
-    }
-
-    // item alignment is controlled by align-items-(start/end/center/baseline/stretch)
-    &.#{$prefix}align-items- {
-      &start {
-        align-items: flex-start;
-      }
-      &end {
-        align-items: flex-end;
-      }
-      &center {
-        align-items: center;
-      }
-      &baseline {
-        align-items: baseline;
-      }
-      &stretch {
-        align-items: stretch;
-      }
-    }
-
-    // content alignment is controlled by align-content-(start/end/center/space-between/space-around/stretch)
-    &.#{$prefix}align-content- {
-      &start {
-        align-content: flex-start;
-      }
-      &end {
-        align-content: flex-end;
-      }
-      &center {
-        align-content: center;
-      }
-      &space-between {
-        align-content: space-between;
-      }
-      &space-around {
-        align-content: space-around;
-      }
-      &stretch {
-        align-content: stretch;
-      }
+  } @else if ($maxWidth > 0) {
+    @media (max-width: $maxWidth) {
+      @include parent-styles($prefix);
     }
   }
 }
 
 .flex {
-  @include parent-styles('', 0);
-  @include parent-styles('xs-', $xs-screen-width);
-  @include parent-styles('sm-', $sm-screen-width);
-  @include parent-styles('md-', $md-screen-width);
-  @include parent-styles('lg-', $lg-screen-width);
-  @include parent-styles('xl-', $xl-screen-width);
+  @include parent-styles('');
+  @include parent-styles-responsive('xs-', 0, $xs-screen-width);
+  @include parent-styles-responsive('sm-', $xs-screen-width, $sm-screen-width);
+  @include parent-styles-responsive('md-', $sm-screen-width, $md-screen-width);
+  @include parent-styles-responsive('lg-', $md-screen-width, $lg-screen-width);
+  @include parent-styles-responsive('xl-', $lg-screen-width, 0);
 }

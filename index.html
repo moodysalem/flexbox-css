@@ -211,12 +211,14 @@
     <p>
         All the classes mentioned above also have responsive variants of xs, sm, md, lg and xl. The default
         behavior is to apply to screens of all sizes. Applying a prefix to the class name will limit the class to only
-        apply to that minimum screen size.
+        apply to that screen size range
     </p>
-    <h5>Prefix Minimum Widths</h5>
+    <h5>Prefix Ranges</h5>
     <table>
         <thead>
         <tr>
+            <th></th>
+            <th>No Prefix</th>
             <th>xs-</th>
             <th>sm-</th>
             <th>md-</th>
@@ -226,11 +228,22 @@
         </thead>
         <tbody>
         <tr>
+            <td>Min</td>
+            <td>All</td>
+            <td>down</td>
             <td>480px</td>
             <td>768px</td>
             <td>992px</td>
             <td>1200px</td>
-            <td>1480px</td>
+        </tr>
+        <tr>
+            <td>Max</td>
+            <td>All</td>
+            <td>480px</td>
+            <td>768px</td>
+            <td>992px</td>
+            <td>1200px</td>
+            <td>up</td>
         </tr>
         </tbody>
     </table>
