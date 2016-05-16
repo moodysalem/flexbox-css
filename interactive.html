@@ -33,6 +33,12 @@
 <script>
     'use strict';
 
+    function addIfNotNone(val, array, prefix) {
+        if (val !== NONE) {
+            array.push((prefix || '') + val);
+        }
+    }
+
     var DOM = React.DOM, PropTypes = React.PropTypes;
 
     var NONE = '';
@@ -40,7 +46,12 @@
     var WRAPPINGS = [NONE, 'nowrap', 'wrap', 'wrap-reverse'];
     var JUSTIFICATIONS = [NONE, 'start', 'end', 'center', 'space-between', 'space-around'];
     var ALIGN_ITEMS = [NONE, 'start', 'end', 'center', 'baseline', 'stretch'];
+    var ALIGN_ITEM = ALIGN_ITEMS.concat(['auto']);
     var ALIGN_CONTENT = [NONE, 'start', 'end', 'center', 'space-between', 'space-around', 'stretch'];
+    var ONE_THROUGH_TWELVE = [NONE];
+    for (var i = 1; i <= 12; i++) {
+        ONE_THROUGH_TWELVE.push('' + i);
+    }
 
     var SelectOptionMaker = React.createMixin({
         set: function (name, e) {
@@ -55,7 +66,7 @@
                         className: 'text-nowrap display-inline-block'
                     },
                     DOM.span({key: 'label'}, label),
-                    DOM.select({key: 'se', onChange: this.set.bind(this, attr)},
+                    DOM.select({key: 'se', onChange: this.set.bind(this, attr), value: this.state[attr]},
                             options.map(function (or) {
                                 return DOM.option({key: or, value: or}, or);
                             }))
@@ -68,18 +79,38 @@
 
         mixins: [SelectOptionMaker],
 
+        getInitialState: function () {
+            return {
+                align: NONE,
+                grow: NONE,
+                shrink: NONE,
+                order: NONE
+            };
+        },
+
         getClassName: function () {
             var cs = [
+                'padding-sm',
+                'bg-blue-light',
                 'item'
             ];
+
+            addIfNotNone(this.state.align, cs, 'align-');
+            addIfNotNone(this.state.grow, cs, 'grow-');
+            addIfNotNone(this.state.shrink, cs, 'shrink-');
+            addIfNotNone(this.state.order, cs, 'order-');
 
             return cs.join(' ');
         },
 
         render: function () {
             return DOM.div({className: this.getClassName()}, [
-                DOM.div({key: 1}, DOM.strong({}, 'Item Class')),
-                DOM.div({key: 2}, this.getClassName())
+                DOM.div({key: 1}, DOM.strong({}, 'Item #' + this.props.index + ' Class')),
+                DOM.div({key: 2}, this.getClassName()),
+                this.getSelectOption('align', ALIGN_ITEM, 'Align Item: '),
+                this.getSelectOption('grow', ONE_THROUGH_TWELVE, 'Grow: '),
+                this.getSelectOption('shrink', ONE_THROUGH_TWELVE, 'Shrink: '),
+                this.getSelectOption('order', ONE_THROUGH_TWELVE, 'Order: ')
             ]);
         }
     }));
@@ -97,28 +128,25 @@
                 alignItems: NONE,
                 alignContent: NONE,
                 height: 200,
-                width: 400,
+                width: 960,
                 items: 1
             };
-        },
-
-        addIfNotNone: function (val, array, prefix) {
-            if (val !== NONE) {
-                array.push((prefix || '') + val);
-            }
         },
 
         getParentClassName: function () {
             var cs = [
                 'bg-purple-light',
+                'border-green',
+                'border-lg',
+                'border-solid',
                 'flex',
                 this.state.orientation
             ];
 
-            this.addIfNotNone(this.state.wrapping, cs);
-            this.addIfNotNone(this.state.justification, cs, 'justify-');
-            this.addIfNotNone(this.state.alignItems, cs, 'align-items-');
-            this.addIfNotNone(this.state.alignContent, cs, 'align-content-');
+            addIfNotNone(this.state.wrapping, cs);
+            addIfNotNone(this.state.justification, cs, 'justify-');
+            addIfNotNone(this.state.alignItems, cs, 'align-items-');
+            addIfNotNone(this.state.alignContent, cs, 'align-content-');
 
 
             return cs.join(' ');

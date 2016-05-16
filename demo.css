@@ -34,6 +34,18 @@
     color: #0D4E4A
 }
 
+.border-green {
+    border-color: #236863;
+}
+
+.border-lg {
+    border-width: 1em;
+}
+
+.border-solid {
+    border-style: solid;
+}
+
 .bg-blue {
     background-color: #2D4471
 }
