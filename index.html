@@ -1,271 +1,346 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>flexbox-css</title>
-    <meta name="description" content="Flexbox Utility CSS Stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>flexbox-css</title>
+        <meta name="description" content="Flexbox Utility CSS Stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
-    <link rel="stylesheet" href="flexbox-css-min.css"/>
-    <link rel="stylesheet" href="demo.css"/>
-</head>
-<body class="bg-blue-dark white overflow-x-hidden">
-<!-- fork me on github banner -->
-<a href="https://github.com/moodysalem/flexbox-css"><img style="position: fixed; top: 0; right: 0; border: 0;"
-                                                      src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
-                                                      alt="Fork me on GitHub"
-                                                      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
-<!-- content -->
-<div class="container">
-    <h1>flexbox-css</h1>
-    <p>
-        flexbox-css is a utility stylesheet with responsive CSS classes representing all the configurations
-        of flexbox, so you don't have to worry about vendor prefixing and you don't have to mix in flexbox with
-        your own styles. You just apply the utility classes you need to get the proper layout for different screen
-        sizes.
-    </p>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+        <link rel="stylesheet" href="flexbox-css-min.css"/>
+        <link rel="stylesheet" href="demo.css"/>
+    </head>
+    <body class="bg-blue-dark white overflow-x-hidden">
+        <!-- fork me on github banner -->
+        <a href="https://github.com/moodysalem/flexbox-css"><img style="position: fixed; top: 0; right: 0; border: 0;"
+                                                                 src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+                                                                 alt="Fork me on GitHub"
+                                                                 data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+        <!-- content -->
+        <div class="container">
+            <h1>flexbox-css</h1>
+            <p>
+                flexbox-css is a utility stylesheet with responsive CSS classes representing all the configurations
+                of flexbox, so you don't have to worry about vendor prefixing and you don't have to mix in flexbox with
+                your own styles. You just apply the utility classes you need to get the proper layout for different
+                screen
+                sizes.
+            </p>
 
-    <h2>Install</h2>
-    <code class="bg-purple-light padding-sm">npm i --save-dev flexbox-css</code>
+            <h2>Install</h2>
+            <code class="bg-purple-light padding-sm">npm i --save-dev flexbox-css</code>
 
-    <h2>Development</h2>
-    <p>
-        The build process for this project is
-        <code class="bg-purple-light">sass</code>
-        to
-        <code class="bg-purple-light">autoprefixer</code>
-        to
-        <code class="bg-purple-light">cleancss</code>.
-        Run <code class="bg-purple-light">npm run build</code> to make your own build.
-        When doing development, use <code class="bg-purple-light">npm run dev</code> to watch the source files for
-        changes and
-        automatically rebuild.
-    </p>
+            <h2>Development</h2>
+            <p>
+                The build process for this project is
+                <code class="bg-purple-light">sass</code>
+                to
+                <code class="bg-purple-light">autoprefixer</code>
+                to
+                <code class="bg-purple-light">cleancss</code>.
+                Run <code class="bg-purple-light">npm run build</code> to make your own build.
+                When doing development, use <code class="bg-purple-light">npm run dev</code> to watch the source files
+                for
+                changes and
+                automatically rebuild.
+            </p>
 
-    <h2>Usage</h2>
-    <p>If you are using webpack to include CSS with a style loader, then it's as simple as</p>
-    <code class="bg-purple-light padding-sm">import 'flexbox-css';</code>
-    <p>Otherwise, you can download flexbox-css.css and use it like any other stylesheet</p>
+            <h2>Usage</h2>
+            <p>If you are using webpack to include CSS with a style loader, then it's as simple as</p>
+            <code class="bg-purple-light padding-sm">import 'flexbox-css';</code>
+            <p>Otherwise, you can download flexbox-css.css and use it like any other stylesheet</p>
 
-    <h2>Documentation & Examples</h2>
+            <h2>Documentation & Examples</h2>
 
-    <h3>Interactive Demo</h3>
-    <p>Go <a class="green-light" href="interactive.html">here</a> for a React demo</p>
+            <h3>Interactive Demo</h3>
+            <p>Go <a class="green-light" href="interactive.html">here</a> for a React demo</p>
 
-    <h3>Parent Classes</h3>
-    <h4>Direction</h4>
-    <p>Row and Column directions are supported equally. The parent must explicitly describe its orientation</p>
-    <div class="bg-blue-light">
-        <div class="flex row">
-            <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
-            <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
-            <div class="item center bg-green-light margin-sm">.flex.row > .item</div>
-        </div>
-        <hr/>
-        <div class="flex col">
-            <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
-            <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
-            <div class="item center bg-green-light margin-sm">.flex.col > .item</div>
-        </div>
-    </div>
+            <h3>Parent Classes</h3>
+            <h4>Direction</h4>
+            <p>Row and Column directions are supported in parallel. The parent must explicitly describe its
+                orientation</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row > .item</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row > .item</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row > .item</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-column">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-column > .item</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-column > .item</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-column > .item</div>
+                </div>
+            </div>
 
-    <h4>Reverse</h4>
-    <p>Add the reverse class to your .flex.row or .flex.col to swap the order</p>
-    <div class="bg-blue-light">
-        <div class="flex row reverse">
-            <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.reverse > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex col reverse">
-            <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.col.reverse > .item 3</div>
-        </div>
-    </div>
+            <h4>Direction</h4>
+            <p>The supported flex directions are flex-direction-(row/row-reverse/column/column-reverse)</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row-reverse">
+                    <div class="item center bg-green-light margin-sm">.flex-direction-row-reverse > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.flex-direction-row-reverse > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.flex-direction-row-reverse > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-column-reverse">
+                    <div class="item center bg-green-light margin-sm">.flex-direction-column-reverse > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.flex-direction-column-reverse > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.flex-direction-column-reverse > .item 3</div>
+                </div>
+            </div>
 
-    <h4>Wrapping</h4>
-    <p>Add .nowrap, .wrap or .wrap-reverse to your .flex.row or .flex.col to change wrapping behavior</p>
-    <div class="bg-blue-light">
-        <div class="flex row wrap">
-            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 3</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 4</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 5</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.wrap > .item 6</div>
-        </div>
-        <hr/>
-        <div class="flex col wrap-reverse" style="height: 140px">
-            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 3</div>
-            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 4</div>
-            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 5</div>
-            <div class="item center bg-green-light margin-sm">.flex.col.wrap-reverse > .item 6</div>
-        </div>
-    </div>
+            <h4>Wrapping</h4>
+            <p>The classes flex-wrap-(nowrap/wrap/wrap-reverse) control wrapping</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row flex-wrap-wrap">
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 1
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 2
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 3
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 4
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 5
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 6
+                    </div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-column flex-wrap-wrap-reverse" style="height: 140px">
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 1
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 2
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 3
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 4
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 5
+                    </div>
+                    <div class="item center bg-green-light margin-sm">
+                        display-flex.flex-direction-column.flex-wrap-wrap-reverse > .item 6
+                    </div>
+                </div>
+            </div>
 
-    <h4>Justification</h4>
-    <p>Add .justify-(start/end/center/space-between/space-around) to .flex.row or .flex.col modify justification
-        behavior.</p>
-    <div class="bg-blue-light">
-        <div class="flex row justify-start">
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-start > .item 1</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-start > .item 2</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-start > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row justify-center">
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-center > .item 1</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-center > .item 2</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-center > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row justify-end">
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-end > .item 1</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-end > .item 2</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-end > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row justify-space-between">
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-between > .item 1</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-between > .item 2</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-between > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row justify-space-around">
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-around > .item 1</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-around > .item 2</div>
-            <div class="item none center bg-green-light margin-sm">.flex.row.justify-space-around > .item 3</div>
-        </div>
-    </div>
+            <h4>Justification</h4>
+            <p>Add .justify-content-(start/end/center/space-between/space-around) to your .display-flex to modify
+                justification behavior.</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row justify-content-start">
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-start > .item 1
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-start > .item 2
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-start > .item 3
+                    </div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row justify-content-center">
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-center > .item 1
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-center > .item 2
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-center > .item 3
+                    </div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row justify-content-end">
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-end > .item 1</div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-end > .item 2</div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-end > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row justify-content-space-between">
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-space-between >
+                        .item 1
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-space-between >
+                        .item 2
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-space-between >
+                        .item 3
+                    </div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row justify-content-space-around">
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-space-around >
+                        .item 1
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-space-around >
+                        .item 2
+                    </div>
+                    <div class="item none center bg-green-light margin-sm">.display-flex.flex-direction-row.justify-content-space-around >
+                        .item 3
+                    </div>
+                </div>
+            </div>
 
-    <h4>Item Alignment</h4>
-    <p>Add .align-items-(start/end/baseline/center/stretch) to .flex.row or .flex.col to modify item alignment.</p>
-    <div class="bg-blue-light">
-        <div class="flex row align-items-start height-100">
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-start > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-start > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-start > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row align-items-end height-100">
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-end > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-end > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-end > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row align-items-baseline height-100">
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-baseline > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-baseline > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-baseline > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row align-items-center height-100">
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-center > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-center > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-center > .item 3</div>
-        </div>
-        <hr/>
-        <div class="flex row align-items-stretch height-100">
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-stretch > .item 1</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-stretch > .item 2</div>
-            <div class="item center bg-green-light margin-sm">.flex.row.align-items-stretch > .item 3</div>
-        </div>
-    </div>
+            <h4>Item Alignment</h4>
+            <p>Add .align-items-(flex-start/flex-end/baseline/center/stretch) to your .display-flex to modify
+                alignment.</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row align-items-flex-start height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-start > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-start > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-start > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-items-flex-end height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-end > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-end > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-end > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-items-baseline height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-baseline > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-baseline > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-baseline > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-items-center height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-center > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-center > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-center > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-items-stretch height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-stretch > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-stretch > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-items-stretch > .item 3</div>
+                </div>
+            </div>
 
-    <!--<h4>Content Alignment</h4>-->
-    <!--<p>Add .align-content-(start/end/center/space-between/space-around/stretch) to .flex.row .flex.col to modify content-->
-    <!--alignment (only relevant with more than 1 line of flex items)</p>-->
-    <!--<div class="bg-blue-light">-->
-    <!---->
-    <!--</div>-->
+            <h4>Content Alignment</h4>
+            <p>Add .align-content-(flex-start/flex-end/baseline/center/stretch) to your .display-flex to modify content
+                alignment.</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row align-content-flex-start height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-start > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-start > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-start > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-content-flex-end height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-end > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-end > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-end > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-content-baseline height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-baseline > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-baseline > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-baseline > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-content-center height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-center > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-center > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-center > .item 3</div>
+                </div>
+                <hr/>
+                <div class="display-flex flex-direction-row align-content-stretch height-100">
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-stretch > .item 1</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-stretch > .item 2</div>
+                    <div class="item center bg-green-light margin-sm">.display-flex.flex-direction-row.align-content-stretch > .item 3</div>
+                </div>
+            </div>
 
 
-    <h3>Child Classes</h3>
+            <h3>Child Classes</h3>
 
-    <h4>Customized Grow/Shrink</h4>
-    <p>0 through 12 are supported for grow and shrink classes</p>
-    <div class="bg-blue-light">
-        <div class="flex row">
-            <div class="item grow-5 center bg-green-light margin-sm">.item.grow-5</div>
-            <div class="item grow-2 center bg-green-light margin-sm">.item.grow-2</div>
-            <div class="item shrink-2 center bg-green-light margin-sm">.item.shrink-2</div>
+            <h4>Customized Grow/Shrink</h4>
+            <p>0 through 12 are supported for .flex-grow and .flex-shrink classes</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row">
+                    <div class="item flex-grow-5 center bg-green-light margin-sm">.item.flex-grow-5</div>
+                    <div class="item flex-grow-2 center bg-green-light margin-sm">.item.flex-grow-2</div>
+                    <div class="item flex-shrink-2 center bg-green-light margin-sm">.item.flex-shrink-2</div>
+                </div>
+            </div>
+
+            <h4>Ordering</h4>
+            <p>0 through 12 are supported for the order classes and can be used to reorder the children</p>
+            <div class="bg-blue-light">
+                <div class="display-flex flex-direction-row">
+                    <div class="item center bg-green-light margin-sm order-3">.item.order-3 1</div>
+                    <div class="item center bg-green-light margin-sm order-1">.item.order-1 2</div>
+                    <div class="item center bg-green-light margin-sm order-2">.item.order-2 3</div>
+                </div>
+            </div>
+
+            <h3>Responsive Classes</h3>
+            <p>
+                All the classes mentioned above also have responsive variants of xs, sm, md, lg and xl. The default
+                behavior is to apply to screens of all sizes. Applying a prefix to the class name will limit the class
+                to only
+                apply to that screen size range
+            </p>
+            <h5>Prefix Screen Sizes</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>No Prefix</th>
+                        <th>xs-</th>
+                        <th>sm-</th>
+                        <th>sm-up-</th>
+                        <th>sm-down-</th>
+                        <th>md-</th>
+                        <th>md-up-</th>
+                        <th>md-down-</th>
+                        <th>lg-</th>
+                        <th>lg-up-</th>
+                        <th>lg-down-</th>
+                        <th>xl-</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Min</td>
+                        <td>All</td>
+                        <td>0</td>
+                        <td>480px</td>
+                        <td>480px</td>
+                        <td>0</td>
+                        <td>768px</td>
+                        <td>768px</td>
+                        <td>0</td>
+                        <td>992px</td>
+                        <td>992px</td>
+                        <td>0</td>
+                        <td>1200px</td>
+                    </tr>
+                    <tr>
+                        <td>Max</td>
+                        <td>All</td>
+                        <td>480px</td>
+                        <td>768px</td>
+                        <td>up</td>
+                        <td>768px</td>
+                        <td>992px</td>
+                        <td>up</td>
+                        <td>992px</td>
+                        <td>1200px</td>
+                        <td>up</td>
+                        <td>1200px</td>
+                        <td>up</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
-
-    <h4>Ordering</h4>
-    <p>0 through 12 are supported for the order classes and can be used to reorder the children</p>
-    <div class="bg-blue-light">
-        <div class="flex row">
-            <div class="item center bg-green-light margin-sm order-4">.item.order-4 1</div>
-            <div class="item center bg-green-light margin-sm order-1">.item.order-1 2</div>
-            <div class="item center bg-green-light margin-sm order-3">.item.order-3 3</div>
-        </div>
-    </div>
-
-    <h3>Responsive Classes</h3>
-    <p>
-        All the classes mentioned above also have responsive variants of xs, sm, md, lg and xl. The default
-        behavior is to apply to screens of all sizes. Applying a prefix to the class name will limit the class to only
-        apply to that screen size range
-    </p>
-    <h5>Prefix Screen Sizes</h5>
-    <table>
-        <thead>
-        <tr>
-            <th></th>
-            <th>No Prefix</th>
-            <th>xs-</th>
-            <th>sm-</th>
-            <th>sm-up-</th>
-            <th>sm-down-</th>
-            <th>md-</th>
-            <th>md-up-</th>
-            <th>md-down-</th>
-            <th>lg-</th>
-            <th>lg-up-</th>
-            <th>lg-down-</th>
-            <th>xl-</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Min</td>
-            <td>All</td>
-            <td>0</td>
-            <td>480px</td>
-            <td>480px</td>
-            <td>0</td>
-            <td>768px</td>
-            <td>768px</td>
-            <td>0</td>
-            <td>992px</td>
-            <td>992px</td>
-            <td>0</td>
-            <td>1200px</td>
-        </tr>
-        <tr>
-            <td>Max</td>
-            <td>All</td>
-            <td>480px</td>
-            <td>768px</td>
-            <td>up</td>
-            <td>768px</td>
-            <td>992px</td>
-            <td>up</td>
-            <td>992px</td>
-            <td>1200px</td>
-            <td>up</td>
-            <td>1200px</td>
-            <td>up</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</body>
+    </body>
 </html>

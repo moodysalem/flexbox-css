@@ -1,41 +1,38 @@
 // parent styles
 @mixin parent-styles($prefix) {
-  // flex direction is controlled by row/column & presence of the reverse class
-  &.#{$prefix}row {
-    display: flex;
-    flex-direction: row;
-    &.reverse {
-      flex-direction: row-reverse;
+  &.#{$prefix}flex-direction- {
+    &row {
+      flex-direction: row;
+      &-reverse {
+        flex-direction: row-reverse;
+      }
+    }
+    &column {
+      flex-direction: column;
+      &-reverse {
+        flex-direction: column-reverse;
+      }
     }
   }
 
-  &.#{$prefix}col {
-    display: flex;
-    flex-direction: column;
-    &.reverse {
-      flex-direction: column-reverse;
+  &.#{$prefix}flex-wrap- {
+    &nowrap {
+      flex-wrap: nowrap;
     }
-  }
-
-  // wrapping is controlled by the classes nowrap, wrap, and wrap-reverse
-  &.#{$prefix}nowrap {
-    flex-wrap: nowrap;
-  }
-
-  &.#{$prefix}wrap {
-    flex-wrap: wrap;
-  }
-
-  &.#{$prefix}wrap-reverse {
-    flex-wrap: wrap-reverse;
+    &wrap {
+      flex-wrap: wrap;
+    }
+    &wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
   }
 
   // justification is controlled by justify-(start/end/center/space-between/space-around)
-  &.#{$prefix}justify- {
-    &start {
+  &.#{$prefix}justify-content- {
+    &flex-start {
       justify-content: flex-start;
     }
-    &end {
+    &flex-end {
       justify-content: flex-end;
     }
     &center {
@@ -51,10 +48,10 @@
 
   // item alignment is controlled by align-items-(start/end/center/baseline/stretch)
   &.#{$prefix}align-items- {
-    &start {
+    &flex-start {
       align-items: flex-start;
     }
-    &end {
+    &flex-end {
       align-items: flex-end;
     }
     &center {
@@ -70,10 +67,10 @@
 
   // content alignment is controlled by align-content-(start/end/center/space-between/space-around/stretch)
   &.#{$prefix}align-content- {
-    &start {
+    &flex-start {
       align-content: flex-start;
     }
-    &end {
+    &flex-end {
       align-content: flex-end;
     }
     &center {
@@ -110,7 +107,9 @@
   }
 }
 
-.flex {
+.display-flex {
+  display: flex;
+
   @include parent-styles('');
 
   @each $prefix-info in $responsive-prefixes {

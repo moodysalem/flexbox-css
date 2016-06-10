@@ -4,7 +4,7 @@
   }
 
   // individual item alignment classes
-  &.#{$prefix}align- {
+  &.#{$prefix}align-self- {
     &auto {
       align-self: auto;
     }
@@ -35,10 +35,10 @@
   }
 
   @for $i from 0 through 12 {
-    &.#{$prefix}grow-#{$i} {
+    &.#{$prefix}flex-grow-#{$i} {
       flex-grow: $i;
     }
-    &.#{$prefix}shrink-#{$i} {
+    &.#{$prefix}flex-shrink-#{$i} {
       flex-shrink: $i;
     }
   }
@@ -63,31 +63,32 @@
   }
 }
 
-.flex {
+.display-flex {
   // in rows the min-width is set to 0 for browser support
-  &.row {
-    > .item {
-      min-width: 0;
+  &.flex-direction- {
+    &row {
+      > .item {
+        min-width: 0;
+      }
     }
-  }
-  // in columns the min-height is set to 0 for browser support
-  &.col {
-    > .item {
-      min-height: 0;
+    &column {
+      > .item {
+        min-width: 0;
+      }
     }
-  }
 
-  &.row, &.col {
-    > .item {
-      // default behavior is not to flex (requires grow or shrink classes)
-      flex: none;
-      @include item-styles('');
+    &row, &column {
+      > .item {
+        // default behavior is not to flex (requires grow or shrink classes)
+        flex: none;
+        @include item-styles('');
 
-      @each $prefix-info in $responsive-prefixes {
-        $prefix: nth($prefix-info, 1);
-        $min: nth($prefix-info, 2);
-        $max: nth($prefix-info, 3);
-        @include item-styles-responsive($prefix, $min, $max);
+        @each $prefix-info in $responsive-prefixes {
+          $prefix: nth($prefix-info, 1);
+          $min: nth($prefix-info, 2);
+          $max: nth($prefix-info, 3);
+          @include item-styles-responsive($prefix, $min, $max);
+        }
       }
     }
   }

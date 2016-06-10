@@ -14,9 +14,9 @@
     <body class="bg-blue-dark white overflow-x-hidden">
         <!-- fork me on github banner -->
         <a href="https://github.com/moodysalem/flexbox-css"><img style="position: fixed; top: 0; right: 0; border: 0;"
-                                                              src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
-                                                              alt="Fork me on GitHub"
-                                                              data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+                                                                 src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+                                                                 alt="Fork me on GitHub"
+                                                                 data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
         <div class="container">
             <h1>flexbox-css</h1>
             <h2>Documentation</h2>
@@ -42,12 +42,12 @@
             var DOM = React.DOM, PropTypes = React.PropTypes;
 
             var NONE = '';
-            var ORIENTATIONS = [ 'row', 'col' ];
-            var WRAPPINGS = [ NONE, 'nowrap', 'wrap', 'wrap-reverse' ];
-            var JUSTIFICATIONS = [ NONE, 'start', 'end', 'center', 'space-between', 'space-around' ];
-            var ALIGN_ITEMS = [ NONE, 'start', 'end', 'center', 'baseline', 'stretch' ];
+            var DIRECTIONS = [ 'row', 'row-reverse', 'column', 'column-reverse' ];
+            var JUSTIFICATIONS = [ NONE, 'flex-start', 'flex-end', 'center', 'space-between', 'space-around' ];
+            var ALIGN_ITEMS = [ NONE, 'flex-start', 'flex-end', 'center', 'baseline', 'stretch' ];
+            var WRAPPINGS = [ NONE, 'wrap', 'nowrap', 'wrap-reverse' ];
             var ALIGN_ITEM = ALIGN_ITEMS.concat([ 'auto' ]);
-            var ALIGN_CONTENT = [ NONE, 'start', 'end', 'center', 'space-between', 'space-around', 'stretch' ];
+            var ALIGN_CONTENT = [ NONE, 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch' ];
             var ONE_THROUGH_TWELVE = [ NONE ];
             for (var i = 1; i <= 12; i++) {
                 ONE_THROUGH_TWELVE.push('' + i);
@@ -102,9 +102,9 @@
                         cs = cs.concat(additionalClasses.split(' '));
                     }
 
-                    addIfNotNone(this.state.align, cs, 'align-');
-                    addIfNotNone(this.state.grow, cs, 'grow-');
-                    addIfNotNone(this.state.shrink, cs, 'shrink-');
+                    addIfNotNone(this.state.align, cs, 'align-self-');
+                    addIfNotNone(this.state.grow, cs, 'flex-grow-');
+                    addIfNotNone(this.state.shrink, cs, 'flex-shrink-');
                     addIfNotNone(this.state.order, cs, 'order-');
 
                     return cs.join(' ');
@@ -145,8 +145,8 @@
                 getInitialState: function () {
                     return {
                         orientation: 'row',
-                        wrapping: NONE,
                         justification: NONE,
+                        wrapping: NONE,
                         alignItems: NONE,
                         alignContent: NONE,
                         height: 200,
@@ -162,8 +162,8 @@
                         'border-green',
                         'border-lg',
                         'border-solid',
-                        'flex',
-                        this.state.orientation
+                        'display-flex',
+                        'flex-direction-' + this.state.orientation
                     ];
 
                     var additionalClasses = this.state.additionalClasses;
@@ -172,10 +172,10 @@
                         cs = cs.concat(additionalClasses.split(' '));
                     }
 
-                    addIfNotNone(this.state.wrapping, cs);
-                    addIfNotNone(this.state.justification, cs, 'justify-');
+                    addIfNotNone(this.state.justification, cs, 'justify-content-');
                     addIfNotNone(this.state.alignItems, cs, 'align-items-');
                     addIfNotNone(this.state.alignContent, cs, 'align-content-');
+                    addIfNotNone(this.state.wrapping, cs, 'flex-wrap-');
 
                     return cs.join(' ');
                 },
@@ -242,11 +242,11 @@
                                 onChange: this.set.bind(this, 'width')
                             })
                         ]),
-                        this.getSelectOption('orientation', ORIENTATIONS, 'Orientation: '),
-                        this.getSelectOption('wrapping', WRAPPINGS, 'Wrapping: '),
+                        this.getSelectOption('orientation', DIRECTIONS, 'Directions: '),
                         this.getSelectOption('justification', JUSTIFICATIONS, 'Justification: '),
                         this.getSelectOption('alignItems', ALIGN_ITEMS, 'Align Items: '),
                         this.getSelectOption('alignContent', ALIGN_CONTENT, 'Align Content: '),
+                        this.getSelectOption('wrapping', WRAPPINGS, 'Wrapping: '),
                         DOM.label({ key: 'additional', className: 'margin-sm' }, [
                             'Additional Classes: ',
                             DOM.input({
