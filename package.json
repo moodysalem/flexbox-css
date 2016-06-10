@@ -1,22 +1,22 @@
 {
-  "name": "flexboxy",
-  "version": "2.1.0",
-  "description": "Flexbox utility classes",
-  "main": "flexboxy.css",
+  "name": "flexbox-css",
+  "version": "1.0.0",
+  "description": "Flexbox CSS utility classes",
+  "main": "flexbox-css.css",
   "scripts": {
-    "build": "node-sass src/index.scss flexboxy.css && postcss --use autoprefixer -o flexboxy.css flexboxy.css && cleancss -o flexboxy-min.css flexboxy.css && gzip -9 -f -k flexboxy-min.css",
+    "build": "node-sass src/index.scss flexbox-css.css && postcss --use autoprefixer -o flexbox-css.css flexbox-css.css && cleancss -o flexbox-css-min.css flexbox-css.css && gzip -9 -f -k flexbox-css-min.css",
     "dev": "watch \"npm run build\" src"
   },
   "files": [
-    "flexboxy.css"
+    "flexbox-css.css"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moodysalem/flexboxy.git"
+    "url": "git+https://github.com/moodysalem/flexbox-css.git"
   },
   "keywords": [
     "flexbox",
-    "flexboxy",
+    "flexbox-css",
     "utility",
     "classes",
     "media object",
@@ -31,9 +31,9 @@
   "author": "Moody Salem <moody.salem@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moodysalem/flexboxy/issues"
+    "url": "https://github.com/moodysalem/flexbox-css/issues"
   },
-  "homepage": "https://moodysalem.com/flexboxy/",
+  "homepage": "https://moodysalem.com/flexbox-css/",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "clean-css": "^3.4.12",

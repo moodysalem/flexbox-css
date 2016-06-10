@@ -1,3 +1,3 @@
-# [![npm](https://img.shields.io/npm/v/flexboxy.svg?maxAge=3600)](https://www.npmjs.com/package/flexboxy) flexboxy
-###[Documentation](https://moodysalem.com/flexboxy/)
-###[Demo](https://moodysalem.com/flexboxy/interactive)
+# [![npm](https://img.shields.io/npm/v/flexbox-css.svg?maxAge=3600)](https://www.npmjs.com/package/flexbox-css) flexbox-css
+###[Documentation](https://moodysalem.com/flexbox-css/)
+###[Demo](https://moodysalem.com/flexbox-css/interactive)
