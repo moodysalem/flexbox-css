@@ -120,13 +120,15 @@
                     return DOM.div({ className: this.getClassName() }, [
                         DOM.div({ key: 1 }, DOM.strong({}, 'Item #' + this.props.index + ' Class')),
                         DOM.div({ key: 2 }, this.getClassName()),
-                        DOM.input({
-                            key: 'addtl',
-                            className: '',
-                            type: 'text',
-                            value: this.state.additionalClasses,
-                            onChange: this.handleAdditionalClassesChange
-                        }),
+                        DOM.label({ key: 'addtl' }, [
+                            'Additional: ',
+                            DOM.input({
+                                key: 'input',
+                                type: 'text',
+                                value: this.state.additionalClasses,
+                                onChange: this.handleAdditionalClassesChange
+                            })
+                        ]),
                         this.getSelectOption('align', ALIGN_ITEM, 'Align Item: '),
                         this.getSelectOption('grow', ONE_THROUGH_TWELVE, 'Grow: '),
                         this.getSelectOption('shrink', ONE_THROUGH_TWELVE, 'Shrink: '),
@@ -149,7 +151,8 @@
                         alignContent: NONE,
                         height: 200,
                         width: 960,
-                        items: 1
+                        items: 1,
+                        additionalClasses: ''
                     };
                 },
 
@@ -163,11 +166,16 @@
                         this.state.orientation
                     ];
 
+                    var additionalClasses = this.state.additionalClasses;
+
+                    if (additionalClasses.length > 0) {
+                        cs = cs.concat(additionalClasses.split(' '));
+                    }
+
                     addIfNotNone(this.state.wrapping, cs);
                     addIfNotNone(this.state.justification, cs, 'justify-');
                     addIfNotNone(this.state.alignItems, cs, 'align-items-');
                     addIfNotNone(this.state.alignContent, cs, 'align-content-');
-
 
                     return cs.join(' ');
                 },
@@ -210,6 +218,12 @@
                     ]);
                 },
 
+                handleAdditionalClassesChange: function (e) {
+                    this.setState({
+                        additionalClasses: e.target.value
+                    });
+                },
+
                 render: function () {
                     return DOM.div({}, [
                         DOM.div({ key: 'hw' }, [
@@ -233,6 +247,15 @@
                         this.getSelectOption('justification', JUSTIFICATIONS, 'Justification: '),
                         this.getSelectOption('alignItems', ALIGN_ITEMS, 'Align Items: '),
                         this.getSelectOption('alignContent', ALIGN_CONTENT, 'Align Content: '),
+                        DOM.label({ key: 'additional', className: 'margin-sm' }, [
+                            'Additional Classes: ',
+                            DOM.input({
+                                key: 'input',
+                                type: 'text',
+                                value: this.state.additionalClasses,
+                                onChange: this.handleAdditionalClassesChange
+                            })
+                        ]),
                         this.getAddRemoveButtons(),
                         DOM.div({
                             className: 'margin-sm padding-sm bg-green-light',
