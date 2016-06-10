@@ -112,9 +112,11 @@
 
 .flex {
   @include parent-styles('');
-  @include parent-styles-responsive('xs-', 0, $xs-screen-width);
-  @include parent-styles-responsive('sm-', $xs-screen-width, $sm-screen-width);
-  @include parent-styles-responsive('md-', $sm-screen-width, $md-screen-width);
-  @include parent-styles-responsive('lg-', $md-screen-width, $lg-screen-width);
-  @include parent-styles-responsive('xl-', $lg-screen-width, 0);
+
+  @each $prefix-info in $responsive-prefixes {
+    $prefix: nth($prefix-info, 1);
+    $min: nth($prefix-info, 2);
+    $max: nth($prefix-info, 3);
+    @include parent-styles-responsive($prefix, $min, $max);
+  }
 }

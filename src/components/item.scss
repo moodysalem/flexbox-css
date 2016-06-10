@@ -82,11 +82,13 @@
       // default behavior is not to flex (requires grow or shrink classes)
       flex: none;
       @include item-styles('');
-      @include item-styles-responsive('xs-', 0, $xs-screen-width);
-      @include item-styles-responsive('sm-', $xs-screen-width, $sm-screen-width);
-      @include item-styles-responsive('md-', $sm-screen-width, $md-screen-width);
-      @include item-styles-responsive('lg-', $md-screen-width, $lg-screen-width);
-      @include item-styles-responsive('xl-', $lg-screen-width, 0);
+
+      @each $prefix-info in $responsive-prefixes {
+        $prefix: nth($prefix-info, 1);
+        $min: nth($prefix-info, 2);
+        $max: nth($prefix-info, 3);
+        @include item-styles-responsive($prefix, $min, $max);
+      }
     }
   }
 }

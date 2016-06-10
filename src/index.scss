@@ -3,5 +3,19 @@ $sm-screen-width: 768px;
 $md-screen-width: 992px;
 $lg-screen-width: 1200px;
 
+$responsive-prefixes: (
+                ('xs-', 0, $xs-screen-width),
+                ('sm-', $xs-screen-width, $sm-screen-width),
+                ('sm-up-', $xs-screen-width, 0),
+                ('sm-down-', 0, $sm-screen-width),
+                ('md-', $sm-screen-width, $md-screen-width),
+                ('md-up-', $sm-screen-width, 0),
+                ('md-down-', 0, $md-screen-width),
+                ('lg-', $md-screen-width, $lg-screen-width),
+                ('lg-up-', $md-screen-width, 0),
+                ('lg-down-', 0, $lg-screen-width),
+                ('xl-', $lg-screen-width, 0)
+);
+
 @import 'components/container';
 @import 'components/item';
