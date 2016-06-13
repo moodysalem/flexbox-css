@@ -1,6 +1,20 @@
 @mixin item-styles($prefix) {
-  &.#{$prefix}none {
+  &.#{$prefix}flex-none {
     flex: none;
+  }
+
+  &.#{$prefix}flex-basis- {
+    &auto {
+      flex-basis: auto;
+    }
+
+    $flex-basis-increment: 100 / $flex-basis-steps;
+    @for $i from 0 through ($flex-basis-increment) {
+      $basis: $i * $flex-basis-increment;
+      &#{$basis} {
+        flex-basis: $basis * 1%;
+      }
+    }
   }
 
   // individual item alignment classes
@@ -79,8 +93,11 @@
 
     &row, &column {
       > .item {
-        // default behavior is not to flex (requires grow or shrink classes)
-        flex: none;
+        // default behavior is not to grow or shrink
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 0;
+
         @include item-styles('');
 
         @each $prefix-info in $responsive-prefixes {

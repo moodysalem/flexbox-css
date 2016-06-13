@@ -17,5 +17,7 @@ $responsive-prefixes: (
                 ('xl-', $lg-screen-width, 0)
 );
 
+$flex-basis-steps: 10;
+
 @import 'components/container';
 @import 'components/item';
