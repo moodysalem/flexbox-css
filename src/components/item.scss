@@ -96,7 +96,6 @@
         // default behavior is not to grow or shrink
         flex-grow: 0;
         flex-shrink: 0;
-        flex-basis: 0;
 
         @include item-styles('');
 
