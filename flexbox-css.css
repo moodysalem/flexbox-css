@@ -1123,10 +1123,10 @@
   .display-flex.flex-direction-row > .item.align-self-auto, .display-flex.flex-direction-column > .item.align-self-auto {
     -ms-flex-item-align: auto;
         align-self: auto; }
-  .display-flex.flex-direction-row > .item.align-self-start, .display-flex.flex-direction-column > .item.align-self-start {
+  .display-flex.flex-direction-row > .item.align-self-flex-start, .display-flex.flex-direction-column > .item.align-self-flex-start {
     -ms-flex-item-align: start;
         align-self: flex-start; }
-  .display-flex.flex-direction-row > .item.align-self-end, .display-flex.flex-direction-column > .item.align-self-end {
+  .display-flex.flex-direction-row > .item.align-self-flex-end, .display-flex.flex-direction-column > .item.align-self-flex-end {
     -ms-flex-item-align: end;
         align-self: flex-end; }
   .display-flex.flex-direction-row > .item.align-self-center, .display-flex.flex-direction-column > .item.align-self-center {
@@ -1285,10 +1285,10 @@
     .display-flex.flex-direction-row > .item.xs-align-self-auto, .display-flex.flex-direction-column > .item.xs-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.xs-align-self-start, .display-flex.flex-direction-column > .item.xs-align-self-start {
+    .display-flex.flex-direction-row > .item.xs-align-self-flex-start, .display-flex.flex-direction-column > .item.xs-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.xs-align-self-end, .display-flex.flex-direction-column > .item.xs-align-self-end {
+    .display-flex.flex-direction-row > .item.xs-align-self-flex-end, .display-flex.flex-direction-column > .item.xs-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.xs-align-self-center, .display-flex.flex-direction-column > .item.xs-align-self-center {
@@ -1447,10 +1447,10 @@
     .display-flex.flex-direction-row > .item.sm-align-self-auto, .display-flex.flex-direction-column > .item.sm-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.sm-align-self-start, .display-flex.flex-direction-column > .item.sm-align-self-start {
+    .display-flex.flex-direction-row > .item.sm-align-self-flex-start, .display-flex.flex-direction-column > .item.sm-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.sm-align-self-end, .display-flex.flex-direction-column > .item.sm-align-self-end {
+    .display-flex.flex-direction-row > .item.sm-align-self-flex-end, .display-flex.flex-direction-column > .item.sm-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.sm-align-self-center, .display-flex.flex-direction-column > .item.sm-align-self-center {
@@ -1609,10 +1609,10 @@
     .display-flex.flex-direction-row > .item.sm-up-align-self-auto, .display-flex.flex-direction-column > .item.sm-up-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.sm-up-align-self-start, .display-flex.flex-direction-column > .item.sm-up-align-self-start {
+    .display-flex.flex-direction-row > .item.sm-up-align-self-flex-start, .display-flex.flex-direction-column > .item.sm-up-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.sm-up-align-self-end, .display-flex.flex-direction-column > .item.sm-up-align-self-end {
+    .display-flex.flex-direction-row > .item.sm-up-align-self-flex-end, .display-flex.flex-direction-column > .item.sm-up-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.sm-up-align-self-center, .display-flex.flex-direction-column > .item.sm-up-align-self-center {
@@ -1771,10 +1771,10 @@
     .display-flex.flex-direction-row > .item.sm-down-align-self-auto, .display-flex.flex-direction-column > .item.sm-down-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.sm-down-align-self-start, .display-flex.flex-direction-column > .item.sm-down-align-self-start {
+    .display-flex.flex-direction-row > .item.sm-down-align-self-flex-start, .display-flex.flex-direction-column > .item.sm-down-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.sm-down-align-self-end, .display-flex.flex-direction-column > .item.sm-down-align-self-end {
+    .display-flex.flex-direction-row > .item.sm-down-align-self-flex-end, .display-flex.flex-direction-column > .item.sm-down-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.sm-down-align-self-center, .display-flex.flex-direction-column > .item.sm-down-align-self-center {
@@ -1933,10 +1933,10 @@
     .display-flex.flex-direction-row > .item.md-align-self-auto, .display-flex.flex-direction-column > .item.md-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.md-align-self-start, .display-flex.flex-direction-column > .item.md-align-self-start {
+    .display-flex.flex-direction-row > .item.md-align-self-flex-start, .display-flex.flex-direction-column > .item.md-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.md-align-self-end, .display-flex.flex-direction-column > .item.md-align-self-end {
+    .display-flex.flex-direction-row > .item.md-align-self-flex-end, .display-flex.flex-direction-column > .item.md-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.md-align-self-center, .display-flex.flex-direction-column > .item.md-align-self-center {
@@ -2095,10 +2095,10 @@
     .display-flex.flex-direction-row > .item.md-up-align-self-auto, .display-flex.flex-direction-column > .item.md-up-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.md-up-align-self-start, .display-flex.flex-direction-column > .item.md-up-align-self-start {
+    .display-flex.flex-direction-row > .item.md-up-align-self-flex-start, .display-flex.flex-direction-column > .item.md-up-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.md-up-align-self-end, .display-flex.flex-direction-column > .item.md-up-align-self-end {
+    .display-flex.flex-direction-row > .item.md-up-align-self-flex-end, .display-flex.flex-direction-column > .item.md-up-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.md-up-align-self-center, .display-flex.flex-direction-column > .item.md-up-align-self-center {
@@ -2257,10 +2257,10 @@
     .display-flex.flex-direction-row > .item.md-down-align-self-auto, .display-flex.flex-direction-column > .item.md-down-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.md-down-align-self-start, .display-flex.flex-direction-column > .item.md-down-align-self-start {
+    .display-flex.flex-direction-row > .item.md-down-align-self-flex-start, .display-flex.flex-direction-column > .item.md-down-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.md-down-align-self-end, .display-flex.flex-direction-column > .item.md-down-align-self-end {
+    .display-flex.flex-direction-row > .item.md-down-align-self-flex-end, .display-flex.flex-direction-column > .item.md-down-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.md-down-align-self-center, .display-flex.flex-direction-column > .item.md-down-align-self-center {
@@ -2419,10 +2419,10 @@
     .display-flex.flex-direction-row > .item.lg-align-self-auto, .display-flex.flex-direction-column > .item.lg-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.lg-align-self-start, .display-flex.flex-direction-column > .item.lg-align-self-start {
+    .display-flex.flex-direction-row > .item.lg-align-self-flex-start, .display-flex.flex-direction-column > .item.lg-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.lg-align-self-end, .display-flex.flex-direction-column > .item.lg-align-self-end {
+    .display-flex.flex-direction-row > .item.lg-align-self-flex-end, .display-flex.flex-direction-column > .item.lg-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.lg-align-self-center, .display-flex.flex-direction-column > .item.lg-align-self-center {
@@ -2581,10 +2581,10 @@
     .display-flex.flex-direction-row > .item.lg-up-align-self-auto, .display-flex.flex-direction-column > .item.lg-up-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.lg-up-align-self-start, .display-flex.flex-direction-column > .item.lg-up-align-self-start {
+    .display-flex.flex-direction-row > .item.lg-up-align-self-flex-start, .display-flex.flex-direction-column > .item.lg-up-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.lg-up-align-self-end, .display-flex.flex-direction-column > .item.lg-up-align-self-end {
+    .display-flex.flex-direction-row > .item.lg-up-align-self-flex-end, .display-flex.flex-direction-column > .item.lg-up-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.lg-up-align-self-center, .display-flex.flex-direction-column > .item.lg-up-align-self-center {
@@ -2743,10 +2743,10 @@
     .display-flex.flex-direction-row > .item.lg-down-align-self-auto, .display-flex.flex-direction-column > .item.lg-down-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.lg-down-align-self-start, .display-flex.flex-direction-column > .item.lg-down-align-self-start {
+    .display-flex.flex-direction-row > .item.lg-down-align-self-flex-start, .display-flex.flex-direction-column > .item.lg-down-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.lg-down-align-self-end, .display-flex.flex-direction-column > .item.lg-down-align-self-end {
+    .display-flex.flex-direction-row > .item.lg-down-align-self-flex-end, .display-flex.flex-direction-column > .item.lg-down-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.lg-down-align-self-center, .display-flex.flex-direction-column > .item.lg-down-align-self-center {
@@ -2905,10 +2905,10 @@
     .display-flex.flex-direction-row > .item.xl-align-self-auto, .display-flex.flex-direction-column > .item.xl-align-self-auto {
       -ms-flex-item-align: auto;
           align-self: auto; }
-    .display-flex.flex-direction-row > .item.xl-align-self-start, .display-flex.flex-direction-column > .item.xl-align-self-start {
+    .display-flex.flex-direction-row > .item.xl-align-self-flex-start, .display-flex.flex-direction-column > .item.xl-align-self-flex-start {
       -ms-flex-item-align: start;
           align-self: flex-start; }
-    .display-flex.flex-direction-row > .item.xl-align-self-end, .display-flex.flex-direction-column > .item.xl-align-self-end {
+    .display-flex.flex-direction-row > .item.xl-align-self-flex-end, .display-flex.flex-direction-column > .item.xl-align-self-flex-end {
       -ms-flex-item-align: end;
           align-self: flex-end; }
     .display-flex.flex-direction-row > .item.xl-align-self-center, .display-flex.flex-direction-column > .item.xl-align-self-center {
