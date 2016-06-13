@@ -1,6 +1,10 @@
 // parent styles
 @mixin parent-styles($prefix) {
-  &.#{$prefix}flex-direction- {
+  .#{$prefix}display-flex {
+    display: flex;
+  }
+
+  .#{$prefix}flex-direction- {
     &row {
       flex-direction: row;
       &-reverse {
@@ -15,7 +19,7 @@
     }
   }
 
-  &.#{$prefix}flex-wrap- {
+  .#{$prefix}flex-wrap- {
     &nowrap {
       flex-wrap: nowrap;
     }
@@ -28,7 +32,7 @@
   }
 
   // justification is controlled by justify-(start/end/center/space-between/space-around)
-  &.#{$prefix}justify-content- {
+  .#{$prefix}justify-content- {
     &flex-start {
       justify-content: flex-start;
     }
@@ -47,7 +51,7 @@
   }
 
   // item alignment is controlled by align-items-(start/end/center/baseline/stretch)
-  &.#{$prefix}align-items- {
+  .#{$prefix}align-items- {
     &flex-start {
       align-items: flex-start;
     }
@@ -66,7 +70,7 @@
   }
 
   // content alignment is controlled by align-content-(start/end/center/space-between/space-around/stretch)
-  &.#{$prefix}align-content- {
+  .#{$prefix}align-content- {
     &flex-start {
       align-content: flex-start;
     }
@@ -107,15 +111,11 @@
   }
 }
 
-.display-flex {
-  display: flex;
+@include parent-styles('');
 
-  @include parent-styles('');
-
-  @each $prefix-info in $responsive-prefixes {
-    $prefix: nth($prefix-info, 1);
-    $min: nth($prefix-info, 2);
-    $max: nth($prefix-info, 3);
-    @include parent-styles-responsive($prefix, $min, $max);
-  }
+@each $prefix-info in $responsive-prefixes {
+  $prefix: nth($prefix-info, 1);
+  $min: nth($prefix-info, 2);
+  $max: nth($prefix-info, 3);
+  @include parent-styles-responsive($prefix, $min, $max);
 }

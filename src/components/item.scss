@@ -1,9 +1,9 @@
 @mixin item-styles($prefix) {
-  &.#{$prefix}flex-none {
+  .#{$prefix}flex-none {
     flex: none;
   }
 
-  &.#{$prefix}flex-basis- {
+  .#{$prefix}flex-basis- {
     &auto {
       flex-basis: auto;
     }
@@ -18,7 +18,7 @@
   }
 
   // individual item alignment classes
-  &.#{$prefix}align-self- {
+  .#{$prefix}align-self- {
     &auto {
       align-self: auto;
     }
@@ -41,7 +41,7 @@
 
   // .item.order-x
   @for $i from 1 through 12 {
-    &.#{$prefix}order- {
+    .#{$prefix}order- {
       &#{$i} {
         order: $i;
       }
@@ -49,10 +49,10 @@
   }
 
   @for $i from 0 through 12 {
-    &.#{$prefix}flex-grow-#{$i} {
+    .#{$prefix}flex-grow-#{$i} {
       flex-grow: $i;
     }
-    &.#{$prefix}flex-shrink-#{$i} {
+    .#{$prefix}flex-shrink-#{$i} {
       flex-shrink: $i;
     }
   }
@@ -77,35 +77,11 @@
   }
 }
 
-.display-flex {
-  // in rows the min-width is set to 0 for browser support
-  &.flex-direction- {
-    &row {
-      > .item {
-        min-width: 0;
-      }
-    }
-    &column {
-      > .item {
-        min-width: 0;
-      }
-    }
+@include item-styles('');
 
-    &row, &column {
-      > .item {
-        // default behavior is not to grow or shrink
-        flex-grow: 0;
-        flex-shrink: 0;
-
-        @include item-styles('');
-
-        @each $prefix-info in $responsive-prefixes {
-          $prefix: nth($prefix-info, 1);
-          $min: nth($prefix-info, 2);
-          $max: nth($prefix-info, 3);
-          @include item-styles-responsive($prefix, $min, $max);
-        }
-      }
-    }
-  }
+@each $prefix-info in $responsive-prefixes {
+  $prefix: nth($prefix-info, 1);
+  $min: nth($prefix-info, 2);
+  $max: nth($prefix-info, 3);
+  @include item-styles-responsive($prefix, $min, $max);
 }
