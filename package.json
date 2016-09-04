@@ -2,9 +2,9 @@
   "name": "flexbox-css",
   "version": "3.1.0",
   "description": "Flexbox CSS utility classes",
-  "main": "flexbox-css.css",
+  "main": "dist/flexbox-css-min.css",
   "scripts": {
-    "build": "node-sass src/index.scss flexbox-css.css && postcss --use autoprefixer -o flexbox-css.css flexbox-css.css && cleancss -o flexbox-css-min.css flexbox-css.css && gzip -9 -f -k flexbox-css-min.css",
+    "build": "node-sass src/index.scss dist/flexbox-css.css && postcss --use autoprefixer -o dist/flexbox-css.css dist/flexbox-css.css && cleancss -o dist/flexbox-css-min.css dist/flexbox-css.css && gzip -9 -f -k dist/flexbox-css-min.css",
     "dev": "watch \"npm run build\" src"
   },
   "files": [
