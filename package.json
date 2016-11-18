@@ -1,6 +1,6 @@
 {
   "name": "flexbox-css",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Flexbox CSS utility classes",
   "main": "dist/flexbox-css-min.css",
   "scripts": {
